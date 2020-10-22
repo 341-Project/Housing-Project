@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -27,11 +29,29 @@ namespace Housing_Project
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            int household = 1;
-            int income = 5;
+            int i = 0;
+            int j = 0;
+            int numCounties = 72;
+            ArrayList county = new ArrayList();
+
+            int size = int.Parse(household.Text);
+            int money = int.Parse(income.Text);
 
 
-            String  message = IncomeChecker.Qualifier(household, income);
+            while (i < 2) //place holder because there is only 2 in system
+            {
+                if (counties.Items[i].Selected)
+                {
+                    county.Add(counties.Items[i].Text);
+                    j++;
+                }
+
+                i++;
+            }
+
+            //while loop for checklist box and then pass in new array filled with counties into IncomeChecker
+
+            String  message = IncomeChecker.Qualifier(size, money, county);
             results.Text = message;
         }
 

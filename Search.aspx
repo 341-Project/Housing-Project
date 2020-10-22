@@ -7,17 +7,21 @@
         <br />
         <br />
         Household Size<br />
-        <asp:TextBox ID="household" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="household" runat="server" OnTextChanged="TextBox1_TextChanged" TextMode="Number"></asp:TextBox>
         <br />
         <br />
         Gross Income<br />
-        <asp:TextBox ID="income" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="income" runat="server" OnTextChanged="TextBox2_TextChanged" TextMode="Number"></asp:TextBox>
         <br />
+        <asp:CheckBoxList ID="counties" runat="server" Width="142px">
+            <asp:ListItem>Winnebago</asp:ListItem>
+            <asp:ListItem>Outagamie</asp:ListItem>
+        </asp:CheckBoxList>
         <br />
         <asp:Button ID="Submit" runat="server" OnClick="Submit_Click" Text="Submit" />
         <br />
         <br />
-        <br />
-        <asp:TextBox ID="results" runat="server" OnTextChanged="results_TextChanged"></asp:TextBox>
-    </div>
+
+        <asp:TextBox ID="results" runat="server" Height="173px" OnTextChanged="results_TextChanged" Width="249px"></asp:TextBox>
+</div>
 </asp:Content>
