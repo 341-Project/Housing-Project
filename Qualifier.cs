@@ -1,6 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -26,31 +28,94 @@ namespace Housing_Project
             string id = "";
             string resultsShown = "";
 
+            string connectDB = ConfigurationManager.ConnectionStrings["MySQLDB"].ConnectionString;
+            MySqlConnection connect = new MySqlConnection(connectDB);
+
             while (i < county.Count)
             {
-                id = county[i].ToString();
+                id = county[i].ToString(); //SQL database uses that ID to find the right table
 
                 if (household == 1)
                 {
-                    if (income <= 35000) //45000 is a hardcoded variable that will change based on sql.
+                    connect.Open();
+
+                    MySqlCommand county30 = new MySqlCommand("SELECT `1` FROM `County 30%` WHERE County = @id", connect);
+
+                    county30.Parameters.AddWithValue("@id", id);
+                    county30.ExecuteNonQuery();
+
+                    MySqlDataReader reader = county30.ExecuteReader();
+
+                    reader.Read();
+                    int incomeLimit = (int)reader.GetValue(0); //query?
+                    connect.Close();
+
+                    resultsShown += incomeLimit;
+
+                    if (income <= incomeLimit) //calls sql table for county 30%
                     {
                         resultsShown += "30% Qualification";
                         resultsShown += " ";
                         resultsShown += id;
                         resultsShown += "\n";
+                        return "30% Qualification"; 
                     }
-                    else if (income <= 45000)
+
+                    connect.Open();
+
+                    MySqlCommand county40 = new MySqlCommand("SELECT `1` FROM `County 40%` WHERE County = @id", connect);
+
+                    county30.Parameters.AddWithValue("@id", id);
+                    county30.ExecuteNonQuery();
+
+                    reader = county40.ExecuteReader();
+
+                    reader.Read();
+                    incomeLimit = (int)reader.GetValue(0); //query?
+                    connect.Close();
+
+                    if (income <= incomeLimit) //variable == squl query 40%
+                    {
+                        return "40% Qualification";
+                    }
+
+                    connect.Open();
+
+                    MySqlCommand county50 = new MySqlCommand("SELECT `1` FROM `County 50%` WHERE County = @id", connect);
+
+                    county30.Parameters.AddWithValue("@id", id);
+                    county30.ExecuteNonQuery();
+
+                    reader = county40.ExecuteReader();
+
+                    reader.Read();
+                    incomeLimit = (int)reader.GetValue(0); //query?
+                    connect.Close();
+
+                    if (income <= 60000) //variable == squl query 50%
                     {
                         return "50% Qualification";
                     }
-                    else if (income <= 60000)
+
+                    connect.Open();
+
+                    MySqlCommand county60 = new MySqlCommand("SELECT `1` FROM `County 60%` WHERE County = @id", connect);
+
+                    county30.Parameters.AddWithValue("@id", id);
+                    county30.ExecuteNonQuery();
+
+                    reader = county40.ExecuteReader();
+
+                    reader.Read();
+                    incomeLimit = (int)reader.GetValue(0); //query?
+                    connect.Close();
+
+                    if (income < 65000) //variable == squl query 60%
                     {
                         return "60% Qualification";
                     }
-                    else if (income > 60000)
-                    {
-                        return "Market Rate Qualification";
-                    }
+
+                    return "Market Rate Qualification";
                 }
 
                 if (household == 2)

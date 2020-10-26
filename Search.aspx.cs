@@ -29,6 +29,8 @@ namespace Housing_Project
 
         protected void Submit_Click(object sender, EventArgs e)
         {
+            //below should be put into a method into qualifer.aspx
+            //that way this code is clean. Can also then interface later.
             int i = 0;
             int j = 0;
             int numCounties = 72;
@@ -38,7 +40,7 @@ namespace Housing_Project
             int money = int.Parse(income.Text);
 
 
-            while (i < 2) //place holder because there is only 2 in system
+            while (i < 2) //place holder because there is only 2 in system, should be numCounties
             {
                 if (counties.Items[i].Selected)
                 {
@@ -48,8 +50,6 @@ namespace Housing_Project
 
                 i++;
             }
-
-            //while loop for checklist box and then pass in new array filled with counties into IncomeChecker
 
             String  message = IncomeChecker.Qualifier(size, money, county);
             results.Text = message;
