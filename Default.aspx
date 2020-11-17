@@ -4,8 +4,7 @@
 
     <div class="jumbotron">
         <h1>Looking for a home?</h1>
-        
+
         <p><a href="Search.aspx" class="btn btn-primary btn-lg">Find</a></p>
     </div>
-
 </asp:Content>
