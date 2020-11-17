@@ -36,12 +36,12 @@ namespace Housing_Project
                 List<Properties> properties = new List<Properties>();
 
                 properties = PopulatePropertiesList(properties, county[i].ToString());
+                
+                
+                codeToDisplay += " " + countyQualifications[i];
 
-                codeToDisplay += countyQualifications[i];
-                codeToDisplay += county[i];
 
-                for (int j = 0; j < properties.Count; j++)
-                {
+                for (int j = 0; j < properties.Count; j++)                {
 
 
                     if (PopulateProgram(properties[j]) > countyQualifications[i]) //needs to be parsed to int  50 >
