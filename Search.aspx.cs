@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Housing_Project
 {
@@ -44,7 +46,8 @@ namespace Housing_Project
                 i++;
             }
 
-            results.Text = Controller.Search(size, money, county);
+            DIV1.InnerHtml = Controller.Search(size, money, county);
+
         }
 
         protected void results_TextChanged(object sender, EventArgs e)

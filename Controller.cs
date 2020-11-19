@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Renci.SshNet;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
@@ -27,37 +28,118 @@ namespace Housing_Project
             return results = PropertyRetriever(countyQualifications, county);
         }
 
+        public static string CreateUser(string firstName, string lastName, string phoneNumber, string email,
+                                        string userName, string password, int income, string typeOfUser, int householdSize, ArrayList county)
+        {
+
+            AccountValidator checkInput = new AccountValidator();
+
+            if (checkInput.ValidName(firstName, lastName) != "valid.")
+            {
+                return checkInput.ValidName(firstName, lastName);
+            }
+            else if (checkInput.PhoneValid(phoneNumber) != "Valid Number.")
+            {
+                return checkInput.PhoneValid(phoneNumber);
+            }
+            else if (checkInput.ValidEmail(email) != "Valid email.")
+            {
+                return checkInput.ValidEmail(email);
+            }
+            else if (checkInput.ValidUserName(userName) != "Valid userName")
+            {
+                return checkInput.ValidUserName(userName);
+            }
+            else if (checkInput.ValidPassword(password, firstName, lastName) != "Valid Pass.")
+            {
+                return checkInput.ValidPassword(firstName, lastName, password);
+            }
+            else if (checkInput.ValidIncome(income) != "valid income")
+            {
+                return checkInput.ValidIncome(income);
+            }
+            else if (checkInput.ValidHouseSize(householdSize) != "Valid housing size")
+            {
+                return checkInput.ValidHouseSize(householdSize);
+            }
+            else
+            {
+                try
+                {
+                    using (var client = new SshClient("softeng.cs.uwosh.edu", 1022, "heidem57", "cs341SoftEngg@486257")) // establishing ssh connection to server where MySql is hosted
+                    {
+                        client.Connect();
+
+                        string connectDB = ConfigurationManager.ConnectionStrings["MySQLDB"].ConnectionString;
+                        var portForwarded = new ForwardedPortLocal("127.0.0.1", 3306, "127.0.0.1", 3306);
+                        client.AddForwardedPort(portForwarded);
+                        portForwarded.Start();
+                        using (MySqlConnection conn = new MySqlConnection(connectDB))
+                        {
+                            using (MySqlCommand cmd = new MySqlCommand("INSERT INTO Renters(Username, Password, Email, Phone, FirstName, LastName, Income, Household, County1, County2, County3) VALUES(@Username, @Password, @Email, @Phone, @FirstName, @LastName, @Income, @Household, @County1, @County2, @County3)", conn))
+                            {
+                                conn.Open();
+                                cmd.Parameters.AddWithValue("@Username", userName);//Insert all parameters.
+                                cmd.Parameters.AddWithValue("@Password", password);
+                                cmd.Parameters.AddWithValue("@Email", email);
+                                cmd.Parameters.AddWithValue("@Phone", phoneNumber);
+                                cmd.Parameters.AddWithValue("@FirstName", firstName);
+                                cmd.Parameters.AddWithValue("@LastName", lastName);
+                                cmd.Parameters.AddWithValue("@Income", income);
+                                cmd.Parameters.AddWithValue("@HouseHold", householdSize);
+                                cmd.Parameters.AddWithValue("@County1", county[0] != null ? county[0] : "empty");
+                                cmd.Parameters.AddWithValue("@County2", county[1] != null ? county[1] : "empty");
+                                cmd.Parameters.AddWithValue("@County3", county[2] != null ? county[2] : "empty");
+                                cmd.ExecuteNonQuery();
+                                conn.Close();
+                            }
+                        }
+                        client.Disconnect();
+                    }
+
+                }
+                catch (Exception e) {
+                    return e.Message;
+                    //MessageBox.Show(e.Message);
+                    //feedBack = "Error in dataBase access.";
+                }
+            }
+            return "yes";
+        }
+
+
         public static string PropertyRetriever(List<int> countyQualifications, ArrayList county)
         {
             string codeToDisplay = "";
+
+            codeToDisplay += "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>";
+
+            codeToDisplay += "<div class='card-columns'>";
 
             for (int i = 0; i < county.Count; i++)
             {
                 List<Properties> properties = new List<Properties>();
 
                 properties = PopulatePropertiesList(properties, county[i].ToString());
-                
-                
-                codeToDisplay += " " + countyQualifications[i];
 
 
-                for (int j = 0; j < properties.Count; j++)                {
-
-
+                for (int j = 0; j < properties.Count; j++)
+                {
                     if (PopulateProgram(properties[j]) > countyQualifications[i]) //needs to be parsed to int  50 >
                     {
-                        codeToDisplay += "<div>";
-                        codeToDisplay += PopulateAddress(properties[j]); //getters for the sql database method params might be wrong
-                        codeToDisplay += PopulateBedrooms(properties[j]);
-                        codeToDisplay += PopulateImage(properties[j]);
-                        codeToDisplay += PopulateEmail(properties[j]);
-                        codeToDisplay += PopulatePhone(properties[j]);
-                        codeToDisplay += PopulateName(properties[j]);
-                        codeToDisplay += "</div>";
+                        codeToDisplay += "<div class='card'><img class='card-img' img src='https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80'></img>";
+                        codeToDisplay += "<div class='card-body'>";
+                        codeToDisplay += "<h5 class='card-title'>" + PopulateName(properties[j]) + "</h5></div>";
+                        codeToDisplay += "<p class='card-text'>" + PopulateAddress(properties[j]) + "</p>";
+                        codeToDisplay += "<p class='card-text'>" + PopulateBedrooms(properties[j]) + "</p>";
+                        codeToDisplay += "<p class='card-text'>" + PopulateImage(properties[j]) + "</p>";
+                        codeToDisplay += "<p class='card-text'>" + PopulateEmail(properties[j]) + "</p>";
+                        codeToDisplay += "<p class='card-text'>" + PopulatePhone(properties[j]) + "</p></div>";
                     }
                 }
             }
 
+            codeToDisplay += "</div>";
             return codeToDisplay;
         }
 

@@ -1,7 +1,9 @@
-﻿<%@ Page Title ="Search" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="Housing_Project.Search" %>
+﻿<%@ Page Title="Search" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="Housing_Project.Search" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div>
+    <div style="width: 169px; height: 794px; float: left;">
+
+
 
         <br />
         <br />
@@ -18,10 +20,18 @@
             <asp:ListItem>Outagamie</asp:ListItem>
         </asp:CheckBoxList>
         <br />
-        <asp:Button ID="Submit" runat="server" OnClick="Submit_Click" Text="Submit" />
+        <asp:Button ID="Submit" class="btn btn-info" runat="server" OnClick="Submit_Click" Text="Submit" />
         <br />
         <br />
 
-        <asp:TextBox ID="results" runat="server" Height="173px" OnTextChanged="results_TextChanged" Width="249px"></asp:TextBox>
-</div>
+        <br />
+
+    <div  id="DIV1" runat="server" style="width: 1001px; height: 467px; float: left;"></div>
+
+    </div>
+
+    
+
+
+
 </asp:Content>
