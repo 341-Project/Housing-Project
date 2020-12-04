@@ -1,4 +1,4 @@
-﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Housing_Project.About" %>
+﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateAccount.aspx.cs" Inherits="Housing_Project.About" %>
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="MainContent">
     <br />
@@ -36,20 +36,20 @@
     <p>
         <asp:TextBox ID="income" runat="server" OnTextChanged="TextBox8_TextChanged"></asp:TextBox>
     </p>
-    <p>
+<p>
         Householdsize:</p>
-    <p>
+<p>
         <asp:TextBox ID="household" runat="server" OnTextChanged="TextBox9_TextChanged"></asp:TextBox>
     </p>
-    <p>
+<p>
         Counties:</p>
-    <p>
+<p>
         <asp:CheckBoxList ID="counties" runat="server" Height="41px" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged">
             <asp:ListItem>Winnebago</asp:ListItem>
             <asp:ListItem>Outagamie</asp:ListItem>
         </asp:CheckBoxList>
     </p>
-    <p>
+<p>
         &nbsp;</p>
     <p>
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Create a User" />
@@ -57,7 +57,7 @@
     <p>
         <asp:Button ID="Button2" runat="server"  OnClick="Button1_Click" Text="Create a Property Owner" />
     </p>
-    <p>
+<p>
         <asp:TextBox ID="results" runat="server" Height="160px" OnTextChanged="TextBox1_TextChanged" Width="213px">hello</asp:TextBox>
     </p>
 </asp:Content>

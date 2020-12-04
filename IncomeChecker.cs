@@ -7,7 +7,7 @@ using System.Configuration;
 
 namespace Housing_Project
 {
-    internal class IncomeChecker
+    class IncomeChecker
     {
         /*
          * Passes in ArrayList of counties chosen by the user, as well as the
@@ -18,29 +18,6 @@ namespace Housing_Project
         public static List<int> Qualifier(int household, int income, ArrayList county)
         {
             List<int> countyQual = new List<int>();
-
-            /*
-
-            using (var client = new SshClient("softeng.cs.uwosh.edu", 1022, "heidem57", "cs341SoftEngg@486257")) // establishing ssh connection to server where MySql is hosted
-            {
-                client.Connect();
-
-                string connectDB = ConfigurationManager.ConnectionStrings["MySQLDB"].ConnectionString;
-                var portForwarded = new ForwardedPortLocal("127.0.0.1", 3306, "127.0.0.1", 3306);
-                client.AddForwardedPort(portForwarded);
-                portForwarded.Start();
-                using (MySqlConnection conn = new MySqlConnection(connectDB))
-                {
-                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO Renters(Username, Password, Email, Phone, FirstName, County1) VALUES(@Username, @Password, @Email, @Phone, @FirstName, @County1)", conn))
-                    {
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-                    }
-                }
-                client.Disconnect();
-            }
-            */
 
             countyQual = CheckIncome(household, income, county);
 
@@ -64,7 +41,7 @@ namespace Housing_Project
 
             for (int i = 0; i < county.Count; i++)
             {
-                id = county[i].ToString(); //SQL database uses that ID to find the right table
+                id = county[i].ToString();
 
                 incomeLimit = County30Check(household, id);
 

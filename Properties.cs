@@ -12,23 +12,27 @@ namespace Housing_Project
         string county;
         string bedrooms;
         string address;
+        string city;
         string picture;
         string phone;
         string email;
         string program;
         string name;
+        string ownerId;
 
-        public Properties(string Identifier, string County, string Bedrooms, string Address, string Picture, string Phone, string Email, string Program, string name)
+        public Properties(string Identifier, string County, string Bedrooms, string Address, string City, string Picture, string Phone, string Email, string Program, string Name, string OwnerId)
         {
             this.identifier = Identifier;
             this.county = County;
             this.bedrooms = Bedrooms;
             this.address = Address;
+            this.city = City;
             this.picture = Picture;
             this.phone = Phone;
             this.email = Email;
             this.program = Program;
-            this.name = name;
+            this.name = Name;
+            this.ownerId = OwnerId;
         }
 
         public string GetIdentifier()
@@ -50,6 +54,11 @@ namespace Housing_Project
         public string GetAddress()
         {
             return this.address;
+        }
+
+        public string GetCity()
+        {
+            return this.city;
         }
 
         public string GetPicture()
@@ -74,6 +83,11 @@ namespace Housing_Project
         public string GetName()
         {
             return this.name;
+        }
+
+        public string GetOwnerId()
+        {
+            return this.ownerId;
         }
 
     }
