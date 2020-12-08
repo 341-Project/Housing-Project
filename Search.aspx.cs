@@ -30,8 +30,16 @@ namespace Housing_Project
             int money = int.Parse(income.Text);
 
             county.Add(County1.SelectedValue);
-            county.Add(County2.SelectedValue);
-            county.Add(County3.SelectedValue);
+
+            if (County2.SelectedValue != "null")
+            {
+                county.Add(County2.SelectedValue);
+            }
+            if (County3.SelectedValue != "null")
+            {
+                county.Add(County3.SelectedValue);
+            }
+
 
             DIV1.InnerHtml = Controller.Search(size, money, county);
 
@@ -55,5 +63,6 @@ namespace Housing_Project
         {
 
         }
+
     }
 }

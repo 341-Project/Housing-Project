@@ -2,22 +2,20 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div style="width: 169px; height: 794px; float: left;">
-
-
-
         <br />
         <br />
         <br />
         Household Size<br />
-        <asp:TextBox ID="household" runat="server" OnTextChanged="TextBox1_TextChanged" TextMode="Number"></asp:TextBox>
+        <asp:TextBox ID="household" runat="server" OnTextChanged="TextBox1_TextChanged" TextMode="Number" min="1" max="9" required></asp:TextBox>
         <br />
         <br />
         Gross Income<br />
-        <asp:TextBox ID="income" runat="server" OnTextChanged="TextBox2_TextChanged" TextMode="Number"></asp:TextBox>
+        <asp:TextBox ID="income" runat="server" OnTextChanged="TextBox2_TextChanged" TextMode="Number" min="1" required></asp:TextBox>
         <br />
         <br />
         County #1<br />
-        <asp:DropDownList ID="County1" runat="server" OnSelectedIndexChanged="County1_SelectedIndexChanged" Width="118px">
+        <asp:DropDownList ID="County1" runat="server" Selected="true" Value="1" OnSelectedIndexChanged="County1_SelectedIndexChanged" Width="118px" required>
+            <asp:ListItem Value="null">None</asp:ListItem>
             <asp:ListItem>Brown</asp:ListItem>
             <asp:ListItem>Calumet</asp:ListItem>
             <asp:ListItem>Chippewa</asp:ListItem>
@@ -67,7 +65,8 @@
         <br />
         <br />
         County #2<br />
-        <asp:DropDownList ID="County2" runat="server" OnSelectedIndexChanged="County2_SelectedIndexChanged" Width="118px">
+        <asp:DropDownList ID="County2" runat="server" Selected="tue" Value="1" OnSelectedIndexChanged="County2_SelectedIndexChanged" Width="118px">
+            <asp:ListItem Value="null">None</asp:ListItem>
             <asp:ListItem>Brown</asp:ListItem>
             <asp:ListItem>Calumet</asp:ListItem>
             <asp:ListItem>Chippewa</asp:ListItem>
@@ -117,7 +116,8 @@
         <br />
         <br />
         County #3<br />
-        <asp:DropDownList ID="County3" runat="server" OnSelectedIndexChanged="County3_SelectedIndexChanged" Width="118px">
+        <asp:DropDownList ID="County3" runat="server" Selected="true" Value="1" OnSelectedIndexChanged="County3_SelectedIndexChanged" Width="118px">
+            <asp:ListItem Value="null">None</asp:ListItem>
             <asp:ListItem>Brown</asp:ListItem>
             <asp:ListItem>Calumet</asp:ListItem>
             <asp:ListItem>Chippewa</asp:ListItem>
@@ -169,10 +169,23 @@
         <asp:Button ID="Submit" class="btn btn-info" runat="server" OnClick="Submit_Click" Text="Submit" />
         <br />
         <br />
+        <br />
 
         <br />
 
-    <div  id="DIV1" runat="server" style="width: 1001px; height: 467px; float: left;"></div>
+        <div id="DIV1" runat="server" style="width: 1001px; height: 467px; float: left;"></div>
+
+    </div>
+
+
+
+
+
+    </div>
+
+    
+
+
 
     </div>
 

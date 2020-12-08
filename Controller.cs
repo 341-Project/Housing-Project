@@ -31,5 +31,8 @@ namespace Housing_Project {
                                         string userName, string password, int income, string typeOfUser, int householdSize, ArrayList county) {
             return creator.CreateUser(firstName, lastName, phoneNumber, email, userName, password, income, typeOfUser, householdSize, county);  
         } 
+        public static int LoginUser(String userName, string password){
+            return creator.LoginUser(userName, password);
+        }
     }
 }

@@ -13,5 +13,10 @@ namespace Housing_Project
         {
 
         }
+
+        protected void Update_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

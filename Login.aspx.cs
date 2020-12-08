@@ -13,5 +13,20 @@ namespace Housing_Project
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+           int result = Controller.LoginUser(username.Text, password.Text);
+            if (result == 1)
+            {
+                Response.Redirect("UserDashboard.aspx");
+                TextBox1.Text = result.ToString();
+                Session["User"] = "User";
+            }
+            else
+            {
+                TextBox1.Text = result.ToString();
+            }
+        }
     }
 }

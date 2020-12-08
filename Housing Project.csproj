@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\logo.png" />
+    <Content Include="SiteMaster.css" />
     <Content Include="CreateAccount.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
