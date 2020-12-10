@@ -7,7 +7,7 @@
             <div id="login_form" runat="server">
                 Username: -<asp:TextBox ID="username" runat="server"></asp:TextBox>
                 <br>
-                Password: -<asp:TextBox ID="password" runat="server"></asp:TextBox>
+                Password: -<asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
                 &nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" Width="148px" />
                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             </div>

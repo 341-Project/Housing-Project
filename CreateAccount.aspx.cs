@@ -18,21 +18,21 @@ namespace Housing_Project
             int size = int.Parse(household.Text);
             int money = int.Parse(income.Text);
 
-            while (i < 2) //place holder because there is only 2 in system, should be numCounties
-            {
-                if (counties.Items[i].Selected)
-                {
-                    county.Add(counties.Items[i].Text);
-                }
+            county.Add(County1.SelectedValue);
 
-                i++;
+            if (County2.SelectedValue != "null")
+            {
+                county.Add(County2.SelectedValue);
+            }
+            if (County3.SelectedValue != "null")
+            {
+                county.Add(County3.SelectedValue);
             }
 
-
-            county.Add(null);
-            county.Add(null);
-
             results.Text = Controller.CreateUser(fName.Text, lName.Text, phone.Text, email.Text, user.Text, password.Text, money, "Renter", size, county);
+            string[] userInfo = Controller.UserInfo(user.Text);
+            Session["User"] = userInfo;
+            Response.Redirect("Search.aspx");
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -66,6 +66,21 @@ namespace Housing_Project
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void County1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void County2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void County3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

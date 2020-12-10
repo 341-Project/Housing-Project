@@ -96,13 +96,31 @@ namespace Housing_Project
         protected global::System.Web.UI.WebControls.TextBox household;
 
         /// <summary>
-        /// counties control.
+        /// County1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList counties;
+        protected global::System.Web.UI.WebControls.DropDownList County1;
+
+        /// <summary>
+        /// County2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList County2;
+
+        /// <summary>
+        /// County3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList County3;
 
         /// <summary>
         /// Button1 control.

@@ -19,9 +19,11 @@ namespace Housing_Project
            int result = Controller.LoginUser(username.Text, password.Text);
             if (result == 1)
             {
+                
+                //TextBox1.Text = result.ToString();
+                string[] userInfo = Controller.UserInfo(username.Text);
+                Session["User"] = userInfo;
                 Response.Redirect("UserDashboard.aspx");
-                TextBox1.Text = result.ToString();
-                Session["User"] = "User";
             }
             else
             {

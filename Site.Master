@@ -18,10 +18,10 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link href="SiteMaster.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link rel="icon" type="image/x-icon" href="logo2.png">
 </head>
 
-<body>
+<body style="padding-top: 0;">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -42,11 +42,12 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+
         <header>
             <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top otters">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="Default.aspx">
-                        <img src="Content/logo.png" width="100" height="100"></a>
+                        <img src="Content/logo2.png" width="auto" height="100"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -85,6 +86,6 @@
         <footer>
         </footer>
     </form>
-            <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-        </body>
+    <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+</body>
 </html>

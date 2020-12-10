@@ -11,6 +11,13 @@ namespace Housing_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["User"] == null)
+            {
+                Response.Redirect("Default.aspx");
+            }
+            string[] UserInfo = (string[])Session["User"];
+            TextBox1.Text = UserInfo[1];
+
 
         }
 
@@ -18,5 +25,11 @@ namespace Housing_Project
         {
 
         }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
