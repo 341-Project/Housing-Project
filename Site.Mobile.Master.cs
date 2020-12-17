@@ -1,4 +1,5 @@
 using System;
+using System.Web;
 
 namespace Housing_Project
 {
@@ -6,6 +7,11 @@ namespace Housing_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var AlternateView = "Desktop";
+            var switchViewRouteName = "AspNet.FriendlyUrls.SwitchView";
+            var url = GetRouteUrl(switchViewRouteName, new { view = AlternateView, __FriendlyUrls_SwitchViews = true });
+            url += "?ReturnUrl=" + HttpUtility.UrlEncode(Request.RawUrl);
+            Response.Redirect(url);
         }
     }
 }

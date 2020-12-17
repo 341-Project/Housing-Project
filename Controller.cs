@@ -39,9 +39,9 @@ namespace Housing_Project {
         {
             return creator.UserInfo(user);
         }
-        public string UpdateUser(string firstName, string lastName, string username, string phoneNumber,
-                                        int income, string typeOfUser, int householdSize, ArrayList county){
-            return creator.UpdateUser(firstName, lastName, username, phoneNumber, income, typeOfUser, householdSize, county);
+        public static string UpdateUser(string firstName, string lastName, string username, string phoneNumber,
+                                        int income, int householdSize, ArrayList county){
+            return creator.UpdateUser(firstName, lastName, username, phoneNumber, income, householdSize, county);
         }
     }
 }

@@ -36,3 +36,8 @@ textarea {
 #logged{
     display: none;
 }
+
+.navbar-nav {
+    float: none;
+    width: 100%;
+}
