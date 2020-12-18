@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Housing_Project
-{
+namespace Housing_Project {
 
 
-    public partial class Contact
-    {
+    public partial class Contact {
     }
 }

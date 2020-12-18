@@ -1,12 +1,9 @@
 using System;
 using System.Web;
 
-namespace Housing_Project
-{
-    public partial class Site_Mobile : System.Web.UI.MasterPage
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+namespace Housing_Project {
+    public partial class Site_Mobile : System.Web.UI.MasterPage {
+        protected void Page_Load(object sender, EventArgs e) {
             var AlternateView = "Desktop";
             var switchViewRouteName = "AspNet.FriendlyUrls.SwitchView";
             var url = GetRouteUrl(switchViewRouteName, new { view = AlternateView, __FriendlyUrls_SwitchViews = true });

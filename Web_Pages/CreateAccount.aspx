@@ -18,10 +18,6 @@
     <asp:TextBox ID="email" runat="server"></asp:TextBox>
     <br />
     <br />
-    Address:<br />
-    <asp:TextBox ID="address" runat="server" OnTextChanged="TextBox5_TextChanged"></asp:TextBox>
-    <br />
-    <br />
     Username:<br />
     <asp:TextBox ID="user" runat="server" OnTextChanged="TextBox6_TextChanged"></asp:TextBox>
     <br />
@@ -192,11 +188,8 @@
         &nbsp;</p>
     <p>
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Create a User" />
-    </p>
-    <p>
-        <asp:Button ID="Button2" runat="server"  OnClick="Button1_Click" Text="Create a Property Owner" />
-    </p>
-<p>
-        <asp:TextBox ID="results" runat="server" Height="160px" OnTextChanged="TextBox1_TextChanged" Width="213px">hello</asp:TextBox>
+         <asp:TextBox ID="results" runat="server" ></asp:TextBox>
+    <br />
+    <br />
     </p>
 </asp:Content>

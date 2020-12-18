@@ -7,12 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Housing_Project
-{
+namespace Housing_Project {
 
 
-    public partial class UserDashboard
-    {
+    public partial class UserDashboard {
 
         /// <summary>
         /// firstName control.

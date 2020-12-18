@@ -20,6 +20,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link href="SiteMaster.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="logo2.png">
+    <script src="siteMasterJava.js" defer></script>
 </head>
 
 <body style="padding-top: 0;">
@@ -41,19 +42,20 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
+                
             </Scripts>
         </asp:ScriptManager>
 
-        <header>
+        <header runat ="server">
 
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="Default.aspx">
+                <a class="navbar-brand" href="/Default.aspx">
                     <img src="/content/logo2.png" width="auto" height="100" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <nav class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/Default.aspx">Home</a>
@@ -62,22 +64,22 @@
                             <a class="nav-link" href="/Web_Pages/Search.aspx">Search</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="notLoggedIn" href="/Web_Pages/Login.aspx">Login</a>
+                            <a class="nav-link" id="displayLogin" href="/Web_Pages/Login.aspx">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="notLoggedIn" href="/Web_Pages/CreateAccount.aspx">Create Account</a>
+                            <a class="nav-link" id="displayCreate" href="/Web_Pages/CreateAccount.aspx">Create Account</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="logged" href="/Web_Pages/UserDashboard.aspx">Dashboard</a>
+                            <a class="nav-link" id="displayDashboard" href="/Web_Pages/UserDashboard.aspx">Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/Web_Pages/Contact.aspx">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="logged" onclick="session_destroy()">Log Out</a>
+                            <a class="nav-link" id="logout" onclick="Session['User'] = null;" href="/logout.aspx">Log Out</a>
                         </li>
                     </ul>
-                </div>
+                </nav>
             </nav>
         </header>
 

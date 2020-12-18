@@ -1,12 +1,9 @@
 ﻿using System.Web.Optimization;
 
-namespace Housing_Project
-{
-    public class BundleConfig
-    {
+namespace Housing_Project {
+    public class BundleConfig {
         // For more information on Bundling, visit https://go.microsoft.com/fwlink/?LinkID=303951
-        public static void RegisterBundles(BundleCollection bundles)
-        {
+        public static void RegisterBundles(BundleCollection bundles) {
             bundles.Add(new ScriptBundle("~/bundles/WebFormsJs").Include(
                             "~/Scripts/WebForms/WebForms.js",
                             "~/Scripts/WebForms/WebUIValidation.js",

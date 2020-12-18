@@ -5,7 +5,6 @@ using System.Web;
 
 namespace Housing_Project
 {
-    public class CreateUser
-    {
+    public class CreateUser {
     }
 }

@@ -8,8 +8,6 @@
 //------------------------------------------------------------------------------
 
 namespace Housing_Project {
-    
-    
     public partial class ViewSwitcher {
     }
 }

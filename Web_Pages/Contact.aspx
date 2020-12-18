@@ -15,8 +15,7 @@
 
               <div class="card-body">
                 <h4 class="card-title">Ryan Geisler</h4>
-                <p class="card-text">Ryan Geisler is 31 and questioning a lot about his life. Like a quarter-life crisis
-                    feel to it. Doing his best to hang on.</p>
+                <p class="card-text">geislr76@uwosh.edu</p>
               </div>
             </div>
           </div>
@@ -29,9 +28,7 @@
 
               <div class="card-body">
                 <h4 class="card-title">Hunter Hass</h4>
-                <p class="card-text">Hunter is a God amongst men in the Fortnite world. Dude also housed a blocked kick
-                    in the Michigan state High School Football Championship. Pulls a lotta tail, but 
-                    occassionally gets thirsty and goes after some 4's.</p>
+                <p class="card-text">hassh70@uwosh.edu</p>
               </div>
             </div>
           </div>
@@ -44,8 +41,7 @@
 
               <div class="card-body">
                 <h4 class="card-title">Matthew Heider</h4>
-                <p class="card-text">Matt is the originator of the The Hive's pursuit to help low-income individuals and families
-                    Even though his car got stolen, he is still out here grinding for others. </p>
+                <p class="card-text">heidem57@uwosh.edu</p>
               </div>
             </div>
           </div>

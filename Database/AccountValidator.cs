@@ -6,6 +6,10 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.RegularExpressions;
 using System.Web;
 
+/// <summary>
+/// Validates the account inputs
+/// Created by Hunter
+/// </summary>
 namespace Housing_Project {
     public class AccountValidator {
         /// <summary>

@@ -3,18 +3,15 @@ using System;
 using System.Web;
 using System.Web.Routing;
 
-namespace Housing_Project
-{
-    public partial class ViewSwitcher : System.Web.UI.UserControl
-    {
+namespace Housing_Project {
+    public partial class ViewSwitcher : System.Web.UI.UserControl {
         protected string CurrentView { get; private set; }
 
         protected string AlternateView { get; private set; }
 
         protected string SwitchUrl { get; private set; }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
+        protected void Page_Load(object sender, EventArgs e) {
             // Determine current view
             var isMobile = WebFormsFriendlyUrlResolver.IsMobileView(new HttpContextWrapper(Context));
             CurrentView = isMobile ? "Mobile" : "Desktop";

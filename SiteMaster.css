@@ -29,11 +29,11 @@ textarea {
     }
 }
 
-#notLoggedIn{
+.display{
     display: normal;
 }
 
-#logged{
+.dontDisplay{
     display: none;
 }
 

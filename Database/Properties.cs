@@ -1,13 +1,12 @@
 ﻿using System;
 
-/*
- * Constructor for properties object. Along with getters.
- */
+/// <summary>
+/// Constructor for Properties
+/// Created by Nick Lemonrod
+/// </summary>
 
-namespace Housing_Project
-{
-    public class Properties
-    {
+namespace Housing_Project {
+    public class Properties {
         string identifier;
         string county;
         string bedrooms;
@@ -20,8 +19,7 @@ namespace Housing_Project
         string name;
         string ownerId;
 
-        public Properties(string Identifier, string County, string Bedrooms, string Address, string City, string Picture, string Phone, string Email, string Program, string Name, string OwnerId)
-        {
+        public Properties(string Identifier, string County, string Bedrooms, string Address, string City, string Picture, string Phone, string Email, string Program, string Name, string OwnerId) {
             this.identifier = Identifier;
             this.county = County;
             this.bedrooms = Bedrooms;
@@ -35,60 +33,47 @@ namespace Housing_Project
             this.ownerId = OwnerId;
         }
 
-        public string GetIdentifier()
-        {
+        public string GetIdentifier() {
             return this.identifier;
         }
 
-        public string GetCounty()
-        {
+        public string GetCounty() {
             return this.county;
         }
 
-        public string GetBedrooms()
-        {
-
+        public string GetBedrooms() {
             return this.bedrooms;
         }
 
-        public string GetAddress()
-        {
+        public string GetAddress() {
             return this.address;
         }
 
-        public string GetCity()
-        {
+        public string GetCity() {
             return this.city;
         }
 
-        public string GetPicture()
-        {
+        public string GetPicture() {
             return this.picture;
         }
 
-        public string GetPhone()
-        {
+        public string GetPhone() {
             return this.phone;
         }
 
-        public string GetEmail()
-        {
+        public string GetEmail() {
             return this.email;
         }
 
-        public string GetProgram()
-        {
+        public string GetProgram() {
             return this.program;
         }
-        public string GetName()
-        {
+        public string GetName() {
             return this.name;
         }
 
-        public string GetOwnerId()
-        {
+        public string GetOwnerId() {
             return this.ownerId;
         }
-
     }
 }

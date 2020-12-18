@@ -211,7 +211,9 @@
     <Content Include="images\property\willow.png" />
     <Content Include="images\property\winchester.JPG" />
     <Content Include="images\property\woolen.jpg" />
+    <Content Include="siteMasterJava.js" />
     <Content Include="SiteMaster.css" />
+    <Content Include="logout.aspx" />
     <Content Include="Web_Pages\CreateAccount.aspx" />
     <Content Include="Web_Pages\Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -274,6 +276,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Database\PropertyListGenerator.cs" />
     <Compile Include="Database\CreateUserForDatabase.cs" />
+    <Compile Include="Interfaces\IController.cs" />
+    <Compile Include="Interfaces\ICreateUserForDatabase.cs" />
+    <Compile Include="Interfaces\IIncomeChecker.cs" />
+    <Compile Include="Interfaces\IPropertyListGenerator.cs" />
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web_Pages\CreateAccount.aspx.cs">
       <DependentUpon>CreateAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
